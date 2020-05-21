@@ -1,0 +1,26 @@
+version: '3'
+services:
+  api:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile-local
+    hostname: api
+    # command: ["npm", "run", "start"]
+    command: ["npm", "run", "dev"]
+    # command: ["npm", "run", "process"]
+    # command: ["npm", "run", "test"]
+    # command: ["npm", "run", "hold"]
+    volumes:
+      - ./:/usr/src/api
+      - /usr/src/api/node_modules
+    ports:
+      - "23088:8081"
+    env_file:
+      - docker/variables-local.env
+    networks:
+      - geocode
+networks:
+  default:
+    driver: bridge
+  geocode:
+    driver: bridge

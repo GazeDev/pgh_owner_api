@@ -1,0 +1,10 @@
+
+node_modules
+docker/postgres-data
+docker/variables.env
+docker/variables-deploy.env
+docker/variables-test.env
+docker/variables-local.env
+assessments/AC_Property_Assessments_*
+assessments/processed.csv
+assessments/processed.json
