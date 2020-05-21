@@ -100,7 +100,7 @@ module.exports = (async() => {
     try {
       routesFile = require(`./lib/${mod}/${mod}.routes.js`);
       if(routesFile.routes) {
-        await server.route(routesFile.routes());
+        await server.route(await routesFile.routes());
       }
     } catch(err) {
       console.log(err);
