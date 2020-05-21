@@ -10,7 +10,7 @@
   "scripts": {
     "start": "node index.js",
     "process": "node ./assessments/process.js",
-    "dev": "nodemon index.js",
+    "dev": "nodemon index.js --ignore 'assessments/processed.json'",
     "test": "gulp test",
     "hold": "tail -f /dev/null"
   },
