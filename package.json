@@ -23,7 +23,9 @@
     "@hapi/joi": "^17.1.0",
     "@hapi/vision": "^6.0.0",
     "csvtojson": "^2.0.10",
+    "hapi-auth-jwt2": "^10.1.0",
     "hapi-swagger": "^12.1.1",
+    "jwks-rsa": "^1.8.0",
     "parse-address": "^1.1.2"
   },
   "devDependencies": {
