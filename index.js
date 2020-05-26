@@ -7,7 +7,6 @@ const HapiSwagger = require('hapi-swagger');
 
 const jwt = require('hapi-auth-jwt2');
 const jwksRsa = require('jwks-rsa');
-const Joi = require('@hapi/joi');
 const Boom = require('@hapi/boom');
 
 
