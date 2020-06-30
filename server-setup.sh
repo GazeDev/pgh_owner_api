@@ -36,10 +36,10 @@ sudo ufw allow 'Nginx Full'
 # Modify nginx.conf to listen for the right server_name if you need to
 
 # Copy our config to the nginx sites-available directory, with a more specific name
-sudo cp nginx.conf /etc/nginx/sites-available/pgh_geocode_api
+sudo cp nginx.conf /etc/nginx/sites-available/pgh_owner_api
 
 # Symlink pgh_geocode_api nginx config to sites-enabled to enable it
-sudo ln -sf /etc/nginx/sites-available/pgh_geocode_api /etc/nginx/sites-enabled
+sudo ln -sf /etc/nginx/sites-available/pgh_owner_api /etc/nginx/sites-enabled
 
 # Remove the default site
 rm /etc/nginx/sites-enabled/default
@@ -55,7 +55,7 @@ sudo add-apt-repository ppa:certbot/certbot -y
 sudo apt-get update
 sudo apt install python-certbot-nginx -y
 
-sudo certbot --nginx -d geocode-api.pittsburghhousing.org
+sudo certbot --nginx -d owner-api.pittsburghhousing.org
 # Enter email address...:
 # (A)gree to Terms
 # (N)o sharing of email address
