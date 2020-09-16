@@ -17,7 +17,7 @@ services:
       context: ../
       dockerfile: docker/Dockerfile
     hostname: api
-    command: bash -c "./wait-for-it/wait-for-it.sh postgres:5432 -t 300 && npx sequelize db:migrate && npm run start"
+    command: bash -c "./wait-for-it/wait-for-it.sh postgres:5432 -t 300 && npx sequelize-cli db:migrate && npm run start"
     volumes:
       - ../:/usr/src/api
       - ../node_modules:/usr/src/api/node_modules
@@ -27,6 +27,8 @@ services:
       - ./variables.env
     networks:
       - owner_api
+    depends_on:
+      - postgres
 networks:
   default:
     driver: bridge
