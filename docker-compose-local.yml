@@ -1,13 +1,24 @@
 version: '3'
 services:
+  postgres:
+    image: postgres:10
+    restart: always
+    volumes:
+      - ./docker/postgres-data:/var/lib/postgresql/data
+      - ./docker/postgres-import:/var/lib/postgresql/import
+    env_file:
+      - docker/variables-local.env
+    ports:
+      - "15435:5432"
+    networks:
+      - owner_api
   api:
     build:
       context: .
       dockerfile: docker/Dockerfile-local
     hostname: api
     # command: ["npm", "run", "start"]
-    command: ["npm", "run", "dev"]
-    # command: ["npm", "run", "process"]
+    command: bash -c "./wait-for-it/wait-for-it.sh postgres:5432 -t 300 && npx sequelize db:migrate && npm run dev"
     # command: ["npm", "run", "test"]
     # command: ["npm", "run", "hold"]
     volumes:
@@ -18,9 +29,11 @@ services:
     env_file:
       - docker/variables-local.env
     networks:
-      - geocode
+      - owner_api
+    depends_on:
+      - postgres
 networks:
   default:
     driver: bridge
-  geocode:
+  owner_api:
     driver: bridge

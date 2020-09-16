@@ -1,11 +1,23 @@
 version: '3'
 services:
+  postgres:
+    image: postgres:10
+    restart: always
+    volumes:
+      - ./docker/postgres-data:/var/lib/postgresql/data
+      - ./docker/postgres-import:/var/lib/postgresql/import
+    env_file:
+      - docker/variables.env
+    ports:
+      - "127.0.0.1:15435:5432"
+    networks:
+      - owner_api
   api:
     build:
       context: .
       dockerfile: docker/Dockerfile
     hostname: api
-    command: ["npm", "run", "start"]
+    command: bash -c "./wait-for-it/wait-for-it.sh postgres:5432 -t 300 && npx sequelize db:migrate && npm run start
     volumes:
       - ./:/usr/src/api
       - /usr/src/api/node_modules
@@ -13,6 +25,10 @@ services:
       - "127.0.0.1:8081:8081"
     env_file:
       - docker/variables.env
+    networks:
+      - owner_api
 networks:
   default:
+    driver: bridge
+  owner_api:
     driver: bridge

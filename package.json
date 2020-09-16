@@ -17,21 +17,22 @@
   "author": "",
   "license": "GPLv3",
   "dependencies": {
-    "@hapi/boom": "^9.0.0",
-    "@hapi/hapi": "^19.1.1",
-    "@hapi/inert": "^6.0.1",
-    "@hapi/joi": "^17.1.1",
-    "@hapi/vision": "^6.0.0",
-    "csvtojson": "^2.0.10",
-    "hapi-auth-jwt2": "^10.1.0",
-    "hapi-swagger": "^13.0.1",
-    "jwks-rsa": "^1.8.0",
-    "parse-address": "^1.1.2"
+    "@hapi/boom": "^9.1.0",
+    "@hapi/hapi": "^20.0.0",
+    "@hapi/inert": "^6.0.2",
+    "@hapi/vision": "^6.0.1",
+    "hapi-auth-jwt2": "^10.2.0",
+    "hapi-swagger": "^14.0.0",
+    "joi": "^17.2.1",
+    "jwks-rsa": "^1.9.0",
+    "pg": "^8.3.3",
+    "sequelize": "^6.3.5",
+    "sequelize-cli": "^6.2.0"
   },
   "devDependencies": {
-    "@hapi/code": "^5.3.1",
+    "@hapi/code": "^8.0.2",
+    "@hapi/lab": "^23.0.0",
     "gulp": "^4.0.2",
-    "gulp-lab": "^2.0.0",
-    "@hapi/lab": "^19.0.1"
+    "gulp-lab": "^2.0.0"
   }
 }
