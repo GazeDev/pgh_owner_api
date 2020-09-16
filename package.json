@@ -26,6 +26,7 @@
     "joi": "^17.2.1",
     "jwks-rsa": "^1.9.0",
     "pg": "^8.3.3",
+    "pg-hstore": "^2.3.3",
     "sequelize": "^6.3.5",
     "sequelize-cli": "^6.2.0"
   },
