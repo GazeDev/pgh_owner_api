@@ -1,6 +1,8 @@
 
 node_modules
 docker/postgres-data
+docker/postgres-import/**
+!docker/postgres-import/.gitkeep
 docker/variables.env
 docker/variables-deploy.env
 docker/variables-test.env
