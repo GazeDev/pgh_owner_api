@@ -47,8 +47,14 @@ You should then be able to access the api at the following url:
 
 If you need terminal access inside your application (for example, to install new npm dependencies):
 
-`docker-compose exec api bash`
+`docker-compose exec owner_api bash`
 (Note: exec requires that we choose a service, which is why we have to specify api, which is defined in our docker/docker-compose.yml)
+
+To run a one-off command without having to 'hold' the container open:
+`docker-compose run owner_api COMMAND`
+
+For example:
+`docker-compose run owner_api npm install`
 
 To stop the container:
 `docker-compose stop`

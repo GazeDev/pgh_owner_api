@@ -1,6 +1,7 @@
 version: '3'
 services:
-  postgres:
+  owner_postgres:
+    container_name: owner_postgres
     image: postgres:10
     restart: always
     volumes:
@@ -12,12 +13,13 @@ services:
       - "127.0.0.1:15435:5432"
     networks:
       - owner_api
-  api:
+  owner_api:
+    container_name: owner_api
     build:
       context: ../
       dockerfile: docker/Dockerfile
     hostname: api
-    command: bash -c "./wait-for-it/wait-for-it.sh postgres:5432 -t 300 && npx sequelize-cli db:migrate && npm run start"
+    command: bash -c "./wait-for-it/wait-for-it.sh owner_postgres:5432 -t 300 && npx sequelize-cli db:migrate && npm run start"
     volumes:
       - ../:/usr/src/api
       - ../node_modules:/usr/src/api/node_modules
@@ -28,7 +30,7 @@ services:
     networks:
       - owner_api
     depends_on:
-      - postgres
+      - owner_postgres
 networks:
   default:
     driver: bridge
