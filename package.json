@@ -24,7 +24,7 @@
     "hapi-auth-jwt2": "^10.2.0",
     "hapi-swagger": "^14.0.0",
     "joi": "^17.2.1",
-    "jwks-rsa": "^1.9.0",
+    "jwks-rsa": "^1.12.3",
     "pg": "^8.3.3",
     "pg-hstore": "^2.3.3",
     "sequelize": "^6.3.5",
